@@ -15,6 +15,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Middleware para manejar solicitudes de favicon
+app.MapGet("/favicon.ico", () => Results.NoContent());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
