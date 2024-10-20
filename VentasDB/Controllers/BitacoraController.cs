@@ -131,8 +131,6 @@ namespace VentasDB.Controllers
 
     public class BitacoraEntregaDTO
     {
-        public int IdBitacora { get; set; }
-
         public DateTime? FechaHoraRegistro { get; set; }
 
         public string? Descripcion { get; set; }

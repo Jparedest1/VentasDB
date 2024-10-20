@@ -131,8 +131,6 @@ namespace VentasDB.Controllers
 
     public class ProveedoreDTO
     {
-        public int IdProveedor { get; set; }
-
         public string? NombreProveedor { get; set; }
 
         public string? DireccionProveedor { get; set; }

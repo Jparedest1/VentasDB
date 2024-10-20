@@ -131,8 +131,6 @@ namespace VentasDB.Controllers
 
     public class VentaDTO
     {
-        public int IdVenta { get; set; }
-
         public DateTime? FechaVenta { get; set; }
 
         public string? TipoVenta { get; set; }

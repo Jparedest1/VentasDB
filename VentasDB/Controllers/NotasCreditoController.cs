@@ -131,8 +131,6 @@ namespace VentasDB.Controllers
 
     public class NotasCreditoDTO
     {
-        public int IdNotaCredito { get; set; }
-
         public DateTime? FechaNotaCredito { get; set; }
 
         public string? TipoNotaCredito { get; set; }

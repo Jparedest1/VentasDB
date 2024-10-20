@@ -52,7 +52,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdEntrega, "IdEntrega");
 
-            entity.Property(e => e.IdBitacora).ValueGeneratedNever();
+            entity.Property(e => e.IdBitacora).ValueGeneratedOnAdd();
             entity.Property(e => e.Descripcion).HasColumnType("text");
             entity.Property(e => e.FechaHoraRegistro).HasColumnType("datetime");
             entity.Property(e => e.Usuario).HasMaxLength(50);
@@ -65,8 +65,7 @@ public partial class VentasDBContext : DbContext
         modelBuilder.Entity<Cliente>(entity =>
         {
             entity.HasKey(e => e.IdCliente).HasName("PRIMARY");
-
-            entity.Property(e => e.IdCliente).ValueGeneratedNever();
+            entity.Property(e => e.IdCliente).ValueGeneratedOnAdd();
             entity.Property(e => e.ApellidosCliente).HasMaxLength(100);
             entity.Property(e => e.CategoriaCliente).HasMaxLength(50);
             entity.Property(e => e.DireccionCliente).HasMaxLength(200);
@@ -87,7 +86,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdProducto, "IdProducto");
 
-            entity.Property(e => e.IdDetalleNotaCredito).ValueGeneratedNever();
+            entity.Property(e => e.IdDetalleNotaCredito).ValueGeneratedOnAdd();
             entity.Property(e => e.PrecioUnitario).HasPrecision(10, 2);
             entity.Property(e => e.Subtotal).HasPrecision(10, 2);
 
@@ -108,7 +107,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdVenta, "IdVenta");
 
-            entity.Property(e => e.IdDetalleVenta).ValueGeneratedNever();
+            entity.Property(e => e.IdDetalleVenta).ValueGeneratedOnAdd();
             entity.Property(e => e.PrecioUnitario).HasPrecision(10, 2);
             entity.Property(e => e.Subtotal).HasPrecision(10, 2);
 
@@ -127,7 +126,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdVenta, "IdVenta");
 
-            entity.Property(e => e.IdEntrega).ValueGeneratedNever();
+            entity.Property(e => e.IdEntrega).ValueGeneratedOnAdd();
             entity.Property(e => e.EstadoEntrega).HasMaxLength(50);
 
             entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.EntregaPaquetes)
@@ -143,7 +142,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdVenta, "IdVenta");
 
-            entity.Property(e => e.IdNotaCredito).ValueGeneratedNever();
+            entity.Property(e => e.IdNotaCredito).ValueGeneratedOnAdd();
             entity.Property(e => e.TipoNotaCredito).HasMaxLength(20);
             entity.Property(e => e.TotalNotaCredito).HasPrecision(10, 2);
 
@@ -158,7 +157,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdProveedor, "IdProveedor");
 
-            entity.Property(e => e.IdProducto).ValueGeneratedNever();
+            entity.Property(e => e.IdProducto).ValueGeneratedOnAdd();
             entity.Property(e => e.Descripcion).HasMaxLength(200);
             entity.Property(e => e.UbicacionFisica).HasMaxLength(100);
 
@@ -171,7 +170,7 @@ public partial class VentasDBContext : DbContext
         {
             entity.HasKey(e => e.IdProveedor).HasName("PRIMARY");
 
-            entity.Property(e => e.IdProveedor).ValueGeneratedNever();
+            entity.Property(e => e.IdProveedor).ValueGeneratedOnAdd();
             entity.Property(e => e.ContactoProveedor).HasMaxLength(100);
             entity.Property(e => e.DireccionProveedor).HasMaxLength(200);
             entity.Property(e => e.NombreProveedor).HasMaxLength(100);
@@ -183,7 +182,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdEntrega, "IdEntrega");
 
-            entity.Property(e => e.IdSeguimiento).ValueGeneratedNever();
+            entity.Property(e => e.IdSeguimiento).ValueGeneratedOnAdd();
             entity.Property(e => e.EstadoSeguimiento).HasMaxLength(50);
             entity.Property(e => e.FechaHoraSeguimiento).HasColumnType("datetime");
             entity.Property(e => e.Latitud).HasPrecision(10, 8);
@@ -200,7 +199,7 @@ public partial class VentasDBContext : DbContext
 
             entity.HasIndex(e => e.IdCliente, "IdCliente");
 
-            entity.Property(e => e.IdVenta).ValueGeneratedNever();
+            entity.Property(e => e.IdVenta).ValueGeneratedOnAdd();
             entity.Property(e => e.TipoVenta).HasMaxLength(10);
             entity.Property(e => e.TotalVenta).HasPrecision(10, 2);
 
