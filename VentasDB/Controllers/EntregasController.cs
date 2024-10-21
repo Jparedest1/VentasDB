@@ -127,7 +127,7 @@ namespace VentasDB.Controllers
 
     public class EntregaPaqueteDTO
     {
-        public DateOnly? FechaEntrega { get; set; }
+        public DateTime? FechaEntrega { get; set; }
 
         public string? EstadoEntrega { get; set; }
     }

@@ -9,7 +9,7 @@ public partial class EntregaPaquete
 
     public int? IdVenta { get; set; }
 
-    public DateOnly? FechaEntrega { get; set; }
+    public DateTime? FechaEntrega { get; set; }
 
     public string? EstadoEntrega { get; set; }
 

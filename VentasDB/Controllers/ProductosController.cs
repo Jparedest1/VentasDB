@@ -28,6 +28,7 @@ namespace VentasDB.Controllers
                 {
                     IdProducto = c.IdProducto,
                     Descripcion = c.Descripcion,
+                    PrecioUnitario = c.PrecioUnitario,
                     FechaVencimiento = c.FechaVencimiento,
                     UbicacionFisica = c.UbicacionFisica,
                     ExistenciaMinima = c.ExistenciaMinima
@@ -44,6 +45,7 @@ namespace VentasDB.Controllers
                 {
                     IdProducto = c.IdProducto,
                     Descripcion = c.Descripcion,
+                    PrecioUnitario = c.PrecioUnitario,
                     FechaVencimiento = c.FechaVencimiento,
                     UbicacionFisica = c.UbicacionFisica,
                     ExistenciaMinima = c.ExistenciaMinima
@@ -65,6 +67,7 @@ namespace VentasDB.Controllers
             var producto = new Producto
             {
                 Descripcion = productoDTO.Descripcion,
+                PrecioUnitario = productoDTO.PrecioUnitario,
                 FechaVencimiento = productoDTO.FechaVencimiento,
                 UbicacionFisica = productoDTO.UbicacionFisica,
                 ExistenciaMinima = productoDTO.ExistenciaMinima
@@ -88,6 +91,7 @@ namespace VentasDB.Controllers
 
             // Actualizar las propiedades del cliente
             producto.Descripcion = productoDTO.Descripcion;
+            producto.PrecioUnitario = productoDTO.PrecioUnitario;
             producto.FechaVencimiento = productoDTO.FechaVencimiento;
             producto.UbicacionFisica = productoDTO.UbicacionFisica;
             producto.ExistenciaMinima = productoDTO.ExistenciaMinima;
@@ -137,6 +141,7 @@ namespace VentasDB.Controllers
     {
         public string? Descripcion { get; set; }
 
+        public decimal? PrecioUnitario { get; set; }
         public DateTime? FechaVencimiento { get; set; }
 
         public string? UbicacionFisica { get; set; }

@@ -9,6 +9,8 @@ public partial class Producto
 
     public string? Descripcion { get; set; }
 
+    public decimal? PrecioUnitario { get; set; }
+
     public int? IdProveedor { get; set; }
 
     public DateTime? FechaVencimiento { get; set; }
