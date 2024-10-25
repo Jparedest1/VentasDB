@@ -5,10 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
+    options.AddPolicy("AllowNetlify",
         policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.WithOrigins("https://proyect-group2deweb.netlify.app", //dominio de Netlify
+                             "http://localhost:4200")          //ambiente local
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -27,6 +28,7 @@ var app = builder.Build();
 
 // Middleware para manejar solicitudes de favicon
 app.MapGet("/favicon.ico", () => Results.NoContent());
+app.UseCors("AllowNetlify");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
