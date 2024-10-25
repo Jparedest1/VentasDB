@@ -5,10 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
+    options.AddPolicy("AllowNetlify",
         policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.WithOrigins("https://proyect-group2deweb.netlify.app", //dominio de Netlify
+                             "http://localhost:4200")          //ambiente local
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -32,6 +33,7 @@ app.UseCors("AllowNetlify");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -42,6 +44,7 @@ else
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VentasDB API v1"));
 }
 
+app.UseCors("AllowNetlify");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
