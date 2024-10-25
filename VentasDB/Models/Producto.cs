@@ -24,4 +24,6 @@ public partial class Producto
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
 
     public virtual Proveedore? IdProveedorNavigation { get; set; }
+
+    public ICollection<Venta> Venta { get; set; } = new List<Venta>();
 }

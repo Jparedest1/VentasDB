@@ -198,6 +198,7 @@ public partial class VentasDBContext : DbContext
             entity.HasKey(e => e.IdVenta).HasName("PRIMARY");
 
             entity.HasIndex(e => e.IdCliente, "IdCliente");
+            entity.HasIndex(e => e.IdProducto, "IdProducto");
 
             entity.Property(e => e.IdVenta).ValueGeneratedOnAdd();
             entity.Property(e => e.TipoVenta).HasMaxLength(10);
@@ -206,6 +207,9 @@ public partial class VentasDBContext : DbContext
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Venta)
                 .HasForeignKey(d => d.IdCliente)
                 .HasConstraintName("Ventas_ibfk_1");
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.Venta)
+            .HasForeignKey(d => d.IdProducto)
+            .HasConstraintName("Ventas_ibfk_2");
         });
 
         OnModelCreatingPartial(modelBuilder);
