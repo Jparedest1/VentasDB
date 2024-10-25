@@ -11,7 +11,6 @@ namespace VentasDB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("CorsPolicy")]
     public class ProveedoreController : ControllerBase
     {
         private readonly VentasDBContext _context;
