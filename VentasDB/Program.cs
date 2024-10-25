@@ -5,11 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowNetlify",
+    options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.WithOrigins("https://proyect-group2deweb.netlify.app", //dominio de Netlify
-                             "http://localhost:4200")          //ambiente local
+            policy.AllowAnyOrigin()
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
