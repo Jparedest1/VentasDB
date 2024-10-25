@@ -28,6 +28,8 @@ namespace VentasDB.Controllers
                 .Select(c => new DetalleVenta
                 {
                     IdDetalleVenta = c.IdDetalleVenta,
+                    IdVenta = c.IdVenta,
+                    IdProducto = c.IdProducto,
                     Cantidad = c.Cantidad,
                     PrecioUnitario = c.PrecioUnitario,
                     Subtotal = c.Subtotal
@@ -43,6 +45,8 @@ namespace VentasDB.Controllers
                 .Select(c => new DetalleVenta
                 {
                     IdDetalleVenta = c.IdDetalleVenta,
+                    IdVenta = c.IdVenta,
+                    IdProducto = c.IdProducto,
                     Cantidad = c.Cantidad,
                     PrecioUnitario = c.PrecioUnitario,
                     Subtotal = c.Subtotal
@@ -63,6 +67,8 @@ namespace VentasDB.Controllers
         {
             var detalleventas = new DetalleVenta
             {
+                IdVenta = detalleventaDTO.IdVenta,
+                IdProducto = detalleventaDTO.IdProducto,
                 Cantidad = detalleventaDTO.Cantidad,
                 PrecioUnitario = detalleventaDTO.PrecioUnitario,
                 Subtotal = detalleventaDTO.Subtotal
@@ -85,6 +91,8 @@ namespace VentasDB.Controllers
             }
 
             // Actualizar las propiedades del cliente
+            detalleventas.IdVenta = detalleventaDTO.IdVenta;
+            detalleventas.IdProducto = detalleventaDTO.IdProducto;
             detalleventas.Cantidad = detalleventaDTO.Cantidad;
             detalleventas.PrecioUnitario = detalleventaDTO.PrecioUnitario;
             detalleventas.Subtotal = detalleventaDTO.Subtotal;
@@ -132,6 +140,10 @@ namespace VentasDB.Controllers
 
     public class DetalleVentaDTO
     {
+        public int? IdVenta { get; set; }
+
+        public int? IdProducto { get; set; }
+
         public int? Cantidad { get; set; }
 
         public decimal? PrecioUnitario { get; set; }
