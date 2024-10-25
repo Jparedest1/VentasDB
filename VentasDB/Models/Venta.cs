@@ -15,6 +15,8 @@ public partial class Venta
 
     public string? TipoVenta { get; set; }
 
+    public string? FormaPago { get; set; }
+
     public decimal? TotalVenta { get; set; }
 
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();

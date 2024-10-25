@@ -32,6 +32,7 @@ namespace VentasDB.Controllers
                     IdProducto = c.IdProducto,
                     FechaVenta = c.FechaVenta,
                     TipoVenta = c.TipoVenta,
+                    FormaPago = c.FormaPago,
                     TotalVenta = c.TotalVenta
                 })
                 .ToListAsync();
@@ -49,6 +50,7 @@ namespace VentasDB.Controllers
                     IdProducto = c.IdProducto,
                     FechaVenta = c.FechaVenta,
                     TipoVenta = c.TipoVenta,
+                    FormaPago = c.FormaPago,
                     TotalVenta = c.TotalVenta
                 })
                 .FirstOrDefaultAsync(c => c.IdVenta == id);
@@ -71,6 +73,7 @@ namespace VentasDB.Controllers
                 IdProducto = ventaDTO.IdProducto,
                 FechaVenta = ventaDTO.FechaVenta,
                 TipoVenta = ventaDTO.TipoVenta,
+                FormaPago = ventaDTO.FormaPago,
                 TotalVenta = ventaDTO.TotalVenta
             };
 
@@ -95,6 +98,7 @@ namespace VentasDB.Controllers
             venta.IdProducto = ventaDTO.IdProducto;
             venta.FechaVenta = ventaDTO.FechaVenta;
             venta.TipoVenta = ventaDTO.TipoVenta;
+            venta.FormaPago = ventaDTO.FormaPago;
             venta.TotalVenta = ventaDTO.TotalVenta;
 
             try
@@ -141,11 +145,14 @@ namespace VentasDB.Controllers
     public class VentaDTO
     {
         public int? IdCliente { get; set; }
+
         public int? IdProducto { get; set; }
 
         public DateTime? FechaVenta { get; set; }
 
         public string? TipoVenta { get; set; }
+
+        public string? FormaPago { get; set; }
 
         public decimal? TotalVenta { get; set; }
     }
