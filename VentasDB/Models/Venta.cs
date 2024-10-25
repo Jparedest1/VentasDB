@@ -21,7 +21,7 @@ public partial class Venta
 
     public virtual ICollection<EntregaPaquete> EntregaPaquetes { get; set; } = new List<EntregaPaquete>();
 
-    public virtual Producto? IdClienteNavigation { get; set; }
+    public virtual Cliente? IdClienteNavigation { get; set; }
 
     public virtual Producto? IdProductoNavigation { get; set; }
 
