@@ -28,6 +28,8 @@ namespace VentasDB.Controllers
                 .Select(c => new Venta
                 {
                     IdVenta = c.IdVenta,
+                    IdCliente = c.IdCliente,
+                    IdProducto = c.IdProducto,
                     FechaVenta = c.FechaVenta,
                     TipoVenta = c.TipoVenta,
                     TotalVenta = c.TotalVenta
@@ -43,6 +45,8 @@ namespace VentasDB.Controllers
                 .Select(c => new Venta
                 {
                     IdVenta = c.IdVenta,
+                    IdCliente = c.IdCliente,
+                    IdProducto = c.IdProducto,
                     FechaVenta = c.FechaVenta,
                     TipoVenta = c.TipoVenta,
                     TotalVenta = c.TotalVenta
@@ -63,6 +67,8 @@ namespace VentasDB.Controllers
         {
             var venta = new Venta
             {
+                IdCliente = ventaDTO.IdCliente,
+                IdProducto = ventaDTO.IdProducto,
                 FechaVenta = ventaDTO.FechaVenta,
                 TipoVenta = ventaDTO.TipoVenta,
                 TotalVenta = ventaDTO.TotalVenta
@@ -85,6 +91,8 @@ namespace VentasDB.Controllers
             }
 
             // Actualizar las propiedades del cliente
+            venta.IdCliente = ventaDTO.IdCliente;
+            venta.IdProducto = ventaDTO.IdProducto;
             venta.FechaVenta = ventaDTO.FechaVenta;
             venta.TipoVenta = ventaDTO.TipoVenta;
             venta.TotalVenta = ventaDTO.TotalVenta;
@@ -132,6 +140,9 @@ namespace VentasDB.Controllers
 
     public class VentaDTO
     {
+        public int? IdCliente { get; set; }
+        public int? IdProducto { get; set; }
+
         public DateTime? FechaVenta { get; set; }
 
         public string? TipoVenta { get; set; }

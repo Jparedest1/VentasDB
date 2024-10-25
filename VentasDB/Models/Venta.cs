@@ -9,6 +9,8 @@ public partial class Venta
 
     public int? IdCliente { get; set; }
 
+    public int? IdProducto { get; set; }
+
     public DateTime? FechaVenta { get; set; }
 
     public string? TipoVenta { get; set; }
@@ -19,7 +21,7 @@ public partial class Venta
 
     public virtual ICollection<EntregaPaquete> EntregaPaquetes { get; set; } = new List<EntregaPaquete>();
 
-    public virtual Cliente? IdClienteNavigation { get; set; }
+    public virtual Producto? IdProductoNavigation { get; set; }
 
     public virtual ICollection<NotasCredito> NotasCreditos { get; set; } = new List<NotasCredito>();
 }
